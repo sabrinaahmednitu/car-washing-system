@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+import { USER_ROLE } from './user.constant';
 import { TUser } from './user.interface';
 const userSchema = new Schema<TUser>(
   {
@@ -22,7 +23,7 @@ const userSchema = new Schema<TUser>(
     },
     role: {
       type: String,
-      enum: ['admin', 'user'],
+      enum: Object.keys(USER_ROLE),
     },
     address: {
       type: String,
