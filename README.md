@@ -1,4 +1,1 @@
-
-
 # Car Wash Booking System
-
