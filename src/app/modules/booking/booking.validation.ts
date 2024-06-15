@@ -3,18 +3,16 @@ import { vehicleTypes } from './booking.constant';
 
 const createBookingValidationSchema = z.object({
   body: z.object({
-    serviceId: z.string(),
-    slotId: z.string(),
+    serviceId: z.string({ required_error: 'Service is required' }),
+    slotId: z.string({ required_error: 'Slot is required' }),
     vehicleType: z.enum(vehicleTypes),
-    vehicleBrand: z.string({ required_error: 'Vehicle mrand is required' }),
-    vehicleModel: z.string({ required_error: 'Vehicle model is required' }),
-    manufacturingYear: z
-      .number()
-      .int()
-      .positive()
-      .nonnegative('Manufacturing year must be a positive integer'),
+    vehicleBrand: z.string({ required_error: 'Vehicle Brand is required' }),
+    vehicleModel: z.string({ required_error: 'Vehicle Model is required' }),
+    manufacturingYear: z.number().int().max(new Date().getFullYear(), {
+      message: 'Year cannot be in the future',
+    }),
     registrationPlate: z.string({
-      required_error: 'Registration Plate is required',
+      required_error: 'Registration Plate Model is required',
     }),
   }),
 });
