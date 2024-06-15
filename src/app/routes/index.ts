@@ -1,5 +1,7 @@
 import express from 'express';
 import { AuthRoutes } from '../modules/auth/auth.route';
+import { ServiceRoutes } from '../modules/service/service.route';
+import { SlotRoutes, SlotRoutes2 } from '../modules/slot/slot.route';
 import {
   BookingRoutes,
   BookingRoutes2,
@@ -11,6 +13,18 @@ const moduleRoutes = [
   {
     path: '/auth',
     route: AuthRoutes,
+  },
+  {
+    path: '/services',
+    route: ServiceRoutes,
+  },
+  {
+    path: '/services/slots',
+    route: SlotRoutes,
+  },
+  {
+    path: '/slots/availability',
+    route: SlotRoutes2,
   },
   {
     path: '/bookings',

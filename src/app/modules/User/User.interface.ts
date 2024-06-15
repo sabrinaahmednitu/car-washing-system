@@ -1,10 +1,12 @@
-import { USER_ROLE } from "./user.constant";
+import { USER_ROLE } from './user.constants';
+
+export type TUserRoles = keyof typeof USER_ROLE;
 
 export type TUser = {
   name: string;
   email: string;
   password: string;
   phone: string;
-  role: keyof typeof USER_ROLE;
+  role: TUserRoles;
   address: string;
 };
