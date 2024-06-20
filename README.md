@@ -34,7 +34,9 @@ Welcome to the Car Wash Booking System. This application allows users to conveni
 
    ```bash
    cd car-washing-system
+   code .
    npm install
+   npm run build
    ```
 
 3. Set up environment variables:
@@ -56,7 +58,6 @@ Welcome to the Car Wash Booking System. This application allows users to conveni
    Run the following command to start the server
 
    ```bash
-   npm run build
    npm run start:dev
    ```
 
