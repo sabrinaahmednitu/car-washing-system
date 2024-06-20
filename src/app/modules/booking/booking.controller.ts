@@ -4,7 +4,7 @@ import httpStatus from 'http-status-codes';
 import { BookingServices } from './booking.service';
 
 //10. Book a Service (Only Accessible by User)
-const createBooking = catchAsync(async (req, res) => {
+const createBookingIntoDB = catchAsync(async (req, res) => {
   const user = req.user;
   const result = await BookingServices.createBooking(req.body, user);
   sendResponse(res, {
@@ -16,7 +16,7 @@ const createBooking = catchAsync(async (req, res) => {
 });
 
 //11. Get All Bookings (Only Accessible by Admin)
-const getAllBookings = catchAsync(async (req, res) => {
+const getAllBookingsFromDB = catchAsync(async (req, res) => {
   const result = await BookingServices.getAllBookings();
   sendResponse(res, {
     success: result.length ? true : false,
@@ -29,7 +29,7 @@ const getAllBookings = catchAsync(async (req, res) => {
 });
 
 //12. Get User's Bookings (Only Accessible by User)
-const getUserBooking = catchAsync(async (req, res) => {
+const getUserBookingFromDB = catchAsync(async (req, res) => {
   const user = req.user;
   const result = await BookingServices.getUserBooking(user);
   sendResponse(res, {
@@ -43,7 +43,7 @@ const getUserBooking = catchAsync(async (req, res) => {
 });
 
 export const BookingControllers = {
-  createBooking,
-  getUserBooking,
-  getAllBookings,
+  createBookingIntoDB,
+  getAllBookingsFromDB,
+  getUserBookingFromDB,
 };

@@ -10,14 +10,14 @@ router.post(
   '/',
   auth('user'),
   validateRequest(BookingValidations.createBookingValidationSchema),
-  BookingControllers.createBooking,
+  BookingControllers.createBookingIntoDB,
 );
 
-router.get('/', auth('admin'), BookingControllers.getAllBookings);
+router.get('/', auth('admin'), BookingControllers.getAllBookingsFromDB);
 
 const router2 = express.Router();
 
-router2.get('/', auth('user'), BookingControllers.getUserBooking);
+router2.get('/', auth('user'), BookingControllers.getUserBookingFromDB);
 
 export const BookingRoutes = router;
 export const BookingRoutes2 = router2;
