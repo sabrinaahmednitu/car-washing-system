@@ -4,7 +4,7 @@ import httpStatus from 'http-status-codes';
 import { SlotSlot } from './slot.service';
 
 //8.Create Slot (Only Accessible by Admin)
-const createSlot = catchAsync(async (req, res) => {
+const createSlotIntoDB = catchAsync(async (req, res) => {
   const result = await SlotSlot.createSlot(req.body);
   sendResponse(res, {
     success: true,
@@ -15,7 +15,7 @@ const createSlot = catchAsync(async (req, res) => {
 });
 
 //9. Get available slots
-const getAvailableSlots = catchAsync(async (req, res) => {
+const getAvailableSlotsFromDB = catchAsync(async (req, res) => {
   const result = await SlotSlot.getAvailableSlots(req.query);
   sendResponse(res, {
     success: result.length ? true : false,
@@ -28,6 +28,6 @@ const getAvailableSlots = catchAsync(async (req, res) => {
 });
 
 export const SlotControllers = {
-  createSlot,
-  getAvailableSlots,
+  createSlotIntoDB,
+  getAvailableSlotsFromDB,
 };

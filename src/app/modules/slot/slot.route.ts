@@ -11,12 +11,12 @@ router.post(
   auth('admin'),
   validateRequest(SlotValidations.createSlotValidationSchema),
 
-  SlotControllers.createSlot,
+  SlotControllers.createSlotIntoDB,
 );
 
 const router2 = express.Router();
 
-router2.get('/', SlotControllers.getAvailableSlots);
+router2.get('/', SlotControllers.getAvailableSlotsFromDB);
 
 export const SlotRoutes = router;
 export const SlotRoutes2 = router2;

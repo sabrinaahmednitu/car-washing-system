@@ -6,7 +6,6 @@ import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import NotFound from './app/errors/NotFound';
 const app = express();
 
-// parsers
 
 app.use(express.json());
 app.use(cors());
@@ -14,7 +13,7 @@ app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Wellcome to Car Wash Backend',
+    message: 'Wellcome to Car Washing System',
   });
 });
 
