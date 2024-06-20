@@ -7,11 +7,13 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import config from '../../config';
 
+//1. User Sign Up
 const signUp = async (payload: TUser) => {
   const result = await User.create(payload);
   return result;
 };
 
+//2. User Login
 const login = async (payload: TLoginUser) => {
   const user = await User.findOne({ email: payload?.email }).select(
     '+password',

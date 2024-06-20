@@ -7,6 +7,8 @@ import AppError from '../../errors/AppError';
 import { Service } from '../service/service.model';
 import { Slot } from '../slot/slot.model';
 
+
+//10. Book a Service (Only Accessible by User)
 const createBooking = async (payload: TBookingForReq, user: JwtPayload) => {
   const userData = await User.findOne({ email: user?.email, role: user?.role });
   if (!userData) {
@@ -51,6 +53,7 @@ const createBooking = async (payload: TBookingForReq, user: JwtPayload) => {
   return result;
 };
 
+//11. Get All Bookings (Only Accessible by Admin)
 const getAllBookings = async () => {
   const result = await Booking.find()
     .populate('customer')
@@ -59,6 +62,7 @@ const getAllBookings = async () => {
   return result;
 };
 
+//12. Get User's Bookings (Only Accessible by User)
 const getUserBooking = async (user: JwtPayload) => {
   const userData = await User.findOne({ email: user?.email, role: user?.role });
 

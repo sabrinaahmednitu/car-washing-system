@@ -3,6 +3,7 @@ import sendResponse from '../../utils/sendResponse';
 import httpStatus from 'http-status-codes';
 import { ServiceServices } from './service.service';
 
+//3. Create Service (Only Accessible by Admin)
 const createService = catchAsync(async (req, res) => {
   const result = await ServiceServices.createService(req.body);
   sendResponse(res, {
@@ -12,6 +13,8 @@ const createService = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+//4. Get single Service
 const getSingleService = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.getSingleService(id);
@@ -22,6 +25,8 @@ const getSingleService = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+//5. Get All Services
 const getAllServices = catchAsync(async (req, res) => {
   const result = await ServiceServices.getAllService();
   sendResponse(res, {
@@ -34,6 +39,7 @@ const getAllServices = catchAsync(async (req, res) => {
   });
 });
 
+//6. Update Services (Only Accessible by Admin)
 const updateService = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.updateService(id, req.body);
@@ -44,6 +50,8 @@ const updateService = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+//7. Delete a Service (Only Accessible by Admin)
 const deleteService = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.deleteService(id);

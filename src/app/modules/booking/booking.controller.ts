@@ -3,6 +3,7 @@ import sendResponse from '../../utils/sendResponse';
 import httpStatus from 'http-status-codes';
 import { BookingServices } from './booking.service';
 
+//10. Book a Service (Only Accessible by User)
 const createBooking = catchAsync(async (req, res) => {
   const user = req.user;
   const result = await BookingServices.createBooking(req.body, user);
@@ -13,6 +14,8 @@ const createBooking = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+//11. Get All Bookings (Only Accessible by Admin)
 const getAllBookings = catchAsync(async (req, res) => {
   const result = await BookingServices.getAllBookings();
   sendResponse(res, {
@@ -25,6 +28,7 @@ const getAllBookings = catchAsync(async (req, res) => {
   });
 });
 
+//12. Get User's Bookings (Only Accessible by User)
 const getUserBooking = catchAsync(async (req, res) => {
   const user = req.user;
   const result = await BookingServices.getUserBooking(user);

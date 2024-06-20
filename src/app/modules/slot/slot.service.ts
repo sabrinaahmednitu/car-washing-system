@@ -4,6 +4,8 @@ import { Service } from '../service/service.model';
 import { TSlot } from './slot.interface';
 import { Slot } from './slot.model';
 
+
+//8.Create Slot (Only Accessible by Admin)
 const createSlot = async (payload: TSlot) => {
   const service = await Service.findById(payload?.service);
   if (!service) {
@@ -53,6 +55,7 @@ const createSlot = async (payload: TSlot) => {
   return result;
 };
 
+//9. Get available slots
 const getAvailableSlots = async (query: Record<string, unknown>) => {
   const queryObj: Partial<{ service: string; date: string }> = {};
   if (query?.date) {
