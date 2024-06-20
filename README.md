@@ -1,15 +1,26 @@
-# Car Wash Booking System
+# Car Washing System
+
 ## Description
-This is a car wash booking system
+
+Welcome to the Car Wash Booking System. This application allows users to conveniently book car wash services.
+
 ## Technology Stack
+
 - **Programming Language**: TypeScript
 - **Web Framework**: Express.js
-- **Database**: MongoDB (using Mongoose for ODM)
-- **Validation**: Zod Validations
-- **Authentication**: JSON Web Tokens (JWT)
-- **Error Handling**: Custom middleware
-- **Deployment**: Deployed on Vercel
+- **Database**: MongoDB
+- **Validation**: Zod
+- **Authentication**: JSON Web Tokens
+- **Deployment**: Vercel
 
+## Features
+
+- User Authentication and Authorization
+- Secure Booking System with JWT
+- Zod Validation for Data Integrity
+- Dynamic Booking Slot Management
+- MongoDB for Data Storage
+- Easy Deployment on Vercel
 
 ## Installation and Setup
 
@@ -28,21 +39,31 @@ This is a car wash booking system
 
 3. Set up environment variables:
 
-   Create a `.env` file in the root and use those environment variables:
+   Create a `.env` file in the root directory and use those environment variables:
 
    ```
    PORT=5000
-   DB_URI= Your own mongodb connnection uri
-   BCRYPT_SALT_ROUNDS= Any number . like (5)
-   JWT_ACCESS_SECRET= Your JWT Secret 
-   JWT_ACCESS_EXPIRES= JWT token Expires time
-   
+   DB_URI=your_own_mongodb_connection_uri
+   BCRYPT_SALT_ROUNDS=any_number_like_5
+   JWT_ACCESS_SECRET=your_jwt_secret
+   JWT_ACCESS_EXPIRES=jwt_token_expiration_time
+
+
    ```
 
 4. Server start command:
 
+   Run the following command to start the server
+
    ```bash
+   npm run build
    npm run start:dev
    ```
 
-5. Access the application in your browser at `http://localhost:5000`.
+5. Access the Application
+
+   Open your browser and navigate to http://localhost:5000 to access the application.
+
+
+
+
