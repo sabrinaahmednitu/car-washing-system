@@ -4,7 +4,7 @@ import httpStatus from 'http-status-codes';
 import { ServiceServices } from './service.service';
 
 //3. Create Service (Only Accessible by Admin)
-const createService = catchAsync(async (req, res) => {
+const createServiceIntoDB = catchAsync(async (req, res) => {
   const result = await ServiceServices.createService(req.body);
   sendResponse(res, {
     success: true,
@@ -15,7 +15,7 @@ const createService = catchAsync(async (req, res) => {
 });
 
 //4. Get single Service
-const getSingleService = catchAsync(async (req, res) => {
+const getSingleServiceFromDB = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.getSingleService(id);
   sendResponse(res, {
@@ -27,7 +27,7 @@ const getSingleService = catchAsync(async (req, res) => {
 });
 
 //5. Get All Services
-const getAllServices = catchAsync(async (req, res) => {
+const getAllServicesFromDB = catchAsync(async (req, res) => {
   const result = await ServiceServices.getAllService();
   sendResponse(res, {
     success: result.length ? true : false,
@@ -40,7 +40,7 @@ const getAllServices = catchAsync(async (req, res) => {
 });
 
 //6. Update Services (Only Accessible by Admin)
-const updateService = catchAsync(async (req, res) => {
+const updateServiceFromDB = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.updateService(id, req.body);
   sendResponse(res, {
@@ -52,7 +52,7 @@ const updateService = catchAsync(async (req, res) => {
 });
 
 //7. Delete a Service (Only Accessible by Admin)
-const deleteService = catchAsync(async (req, res) => {
+const deleteServiceFromDB = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await ServiceServices.deleteService(id);
   sendResponse(res, {
@@ -64,9 +64,9 @@ const deleteService = catchAsync(async (req, res) => {
 });
 
 export const ServiceControllers = {
-  createService,
-  getSingleService,
-  getAllServices,
-  updateService,
-  deleteService,
+  createServiceIntoDB,
+  getSingleServiceFromDB,
+  getAllServicesFromDB,
+  updateServiceFromDB,
+  deleteServiceFromDB,
 };

@@ -10,17 +10,17 @@ router.post(
   '/',
   auth('admin'),
   validateRequest(ServiceValidations.createServiceValidationSchema),
-  ServiceControllers.createService,
+  ServiceControllers.createServiceIntoDB,
 );
-router.get('/:id', ServiceControllers.getSingleService);
-router.get('/', ServiceControllers.getAllServices);
+router.get('/:id', ServiceControllers.getSingleServiceFromDB);
+router.get('/', ServiceControllers.getAllServicesFromDB);
 router.put(
   '/:id',
   auth('admin'),
   validateRequest(ServiceValidations.updateServiceValidationSchema),
 
-  ServiceControllers.updateService,
+  ServiceControllers.updateServiceFromDB,
 );
-router.delete('/:id', ServiceControllers.deleteService);
+router.delete('/:id', ServiceControllers.deleteServiceFromDB);
 
 export const ServiceRoutes = router;
