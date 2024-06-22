@@ -2,7 +2,10 @@
 
 ## Description
 
-Welcome to the Car Wash Booking System. This application allows users to conveniently book car wash services.
+Welcome to the Car Wash Booking System. This backend system for the Car Washing System provides efficient management 
+of user registrations, services, slots, and bookings. With robust error handling and 
+authentication mechanisms, users can enjoy a reliable and secure car washing 
+service.
 
 ## Live URL
 this is the live url ( https://car-washing-system-assignment-3.vercel.app )
