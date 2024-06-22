@@ -17,7 +17,8 @@ const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const booking_service_1 = require("./booking.service");
-const createBooking = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//10. Book a Service (Only Accessible by User)
+const createBookingIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.user;
     const result = yield booking_service_1.BookingServices.createBooking(req.body, user);
     (0, sendResponse_1.default)(res, {
@@ -27,7 +28,8 @@ const createBooking = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
         data: result,
     });
 }));
-const getAllBookings = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//11. Get All Bookings (Only Accessible by Admin)
+const getAllBookingsFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield booking_service_1.BookingServices.getAllBookings();
     (0, sendResponse_1.default)(res, {
         success: result.length ? true : false,
@@ -38,7 +40,8 @@ const getAllBookings = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
         data: result,
     });
 }));
-const getUserBooking = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//12. Get User's Bookings (Only Accessible by User)
+const getUserBookingFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.user;
     const result = yield booking_service_1.BookingServices.getUserBooking(user);
     (0, sendResponse_1.default)(res, {
@@ -51,7 +54,7 @@ const getUserBooking = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
     });
 }));
 exports.BookingControllers = {
-    createBooking,
-    getUserBooking,
-    getAllBookings,
+    createBookingIntoDB,
+    getAllBookingsFromDB,
+    getUserBookingFromDB,
 };

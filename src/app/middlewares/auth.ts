@@ -36,7 +36,7 @@ const auth = (...requiredRoles: TUserRoles[]) => {
 
       next();
     } catch (err) {
-      res.status(404).json({
+      res.status(401).json({
         success: false,
         statusCode: httpStatus.UNAUTHORIZED,
         message: 'You have no access to this route',

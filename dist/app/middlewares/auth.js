@@ -40,7 +40,7 @@ const auth = (...requiredRoles) => {
             next();
         }
         catch (err) {
-            res.status(404).json({
+            res.status(401).json({
                 success: false,
                 statusCode: http_status_codes_1.default.UNAUTHORIZED,
                 message: 'You have no access to this route',

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
+
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
 import { ZodError } from 'zod';

@@ -17,7 +17,8 @@ const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const slot_service_1 = require("./slot.service");
-const createSlot = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//8.Create Slot (Only Accessible by Admin)
+const createSlotIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield slot_service_1.SlotSlot.createSlot(req.body);
     (0, sendResponse_1.default)(res, {
         success: true,
@@ -26,7 +27,8 @@ const createSlot = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
         data: result,
     });
 }));
-const getAvailableSlots = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//9. Get available slots
+const getAvailableSlotsFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield slot_service_1.SlotSlot.getAvailableSlots(req.query);
     (0, sendResponse_1.default)(res, {
         success: result.length ? true : false,
@@ -38,6 +40,6 @@ const getAvailableSlots = (0, catchAsync_1.default)((req, res) => __awaiter(void
     });
 }));
 exports.SlotControllers = {
-    createSlot,
-    getAvailableSlots,
+    createSlotIntoDB,
+    getAvailableSlotsFromDB,
 };

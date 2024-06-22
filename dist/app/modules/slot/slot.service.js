@@ -17,6 +17,7 @@ const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const service_model_1 = require("../service/service.model");
 const slot_model_1 = require("./slot.model");
+//8.Create Slot (Only Accessible by Admin)
 const createSlot = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const service = yield service_model_1.Service.findById(payload === null || payload === void 0 ? void 0 : payload.service);
     if (!service) {
@@ -49,6 +50,7 @@ const createSlot = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield slot_model_1.Slot.create(slots);
     return result;
 });
+//9. Get available slots
 const getAvailableSlots = (query) => __awaiter(void 0, void 0, void 0, function* () {
     const queryObj = {};
     if (query === null || query === void 0 ? void 0 : query.date) {

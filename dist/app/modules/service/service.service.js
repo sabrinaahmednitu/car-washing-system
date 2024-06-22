@@ -16,18 +16,22 @@ exports.ServiceServices = void 0;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const service_model_1 = require("./service.model");
+//3. Create Service (Only Accessible by Admin)
 const createService = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const result = service_model_1.Service.create(payload);
     return result;
 });
+//4. Get single Service
 const getSingleService = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = service_model_1.Service.findById(id);
     return result;
 });
+//5. Get All Services
 const getAllService = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield service_model_1.Service.find();
     return result;
 });
+//6. Update Services (Only Accessible by Admin)
 const updateService = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const service = yield service_model_1.Service.findById(id);
     if (!service) {
@@ -36,6 +40,7 @@ const updateService = (id, payload) => __awaiter(void 0, void 0, void 0, functio
     const result = yield service_model_1.Service.findByIdAndUpdate(id, payload, { new: true });
     return result;
 });
+//7. Delete a Service (Only Accessible by Admin)
 const deleteService = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield service_model_1.Service.findByIdAndUpdate(id, {
         isDeleted: true,

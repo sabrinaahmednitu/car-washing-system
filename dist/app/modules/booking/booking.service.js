@@ -19,6 +19,7 @@ const user_model_1 = require("../User/user.model");
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const service_model_1 = require("../service/service.model");
 const slot_model_1 = require("../slot/slot.model");
+//10. Book a Service (Only Accessible by User)
 const createBooking = (payload, user) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = yield user_model_1.User.findOne({ email: user === null || user === void 0 ? void 0 : user.email, role: user === null || user === void 0 ? void 0 : user.role });
     if (!userData) {
@@ -57,6 +58,7 @@ const createBooking = (payload, user) => __awaiter(void 0, void 0, void 0, funct
         .populate('slot');
     return result;
 });
+//11. Get All Bookings (Only Accessible by Admin)
 const getAllBookings = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield booking_model_1.Booking.find()
         .populate('customer')
@@ -64,6 +66,7 @@ const getAllBookings = () => __awaiter(void 0, void 0, void 0, function* () {
         .populate('slot');
     return result;
 });
+//12. Get User's Bookings (Only Accessible by User)
 const getUserBooking = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = yield user_model_1.User.findOne({ email: user === null || user === void 0 ? void 0 : user.email, role: user === null || user === void 0 ? void 0 : user.role });
     const result = booking_model_1.Booking.find({ customer: userData === null || userData === void 0 ? void 0 : userData._id });

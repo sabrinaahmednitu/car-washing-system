@@ -10,13 +10,12 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const globalErrorHandler_1 = __importDefault(require("./app/middlewares/globalErrorHandler"));
 const NotFound_1 = __importDefault(require("./app/errors/NotFound"));
 const app = (0, express_1.default)();
-// parsers
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.get('/', (req, res) => {
     res.json({
-        message: 'Wellcome to Car Wash Backend',
+        message: 'Wellcome to Car Washing System',
     });
 });
 app.use('/api', routes_1.default);

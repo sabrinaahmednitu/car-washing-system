@@ -17,7 +17,8 @@ const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const service_service_1 = require("./service.service");
-const createService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//3. Create Service (Only Accessible by Admin)
+const createServiceIntoDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield service_service_1.ServiceServices.createService(req.body);
     (0, sendResponse_1.default)(res, {
         success: true,
@@ -26,7 +27,8 @@ const createService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
         data: result,
     });
 }));
-const getSingleService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//4. Get single Service
+const getSingleServiceFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield service_service_1.ServiceServices.getSingleService(id);
     (0, sendResponse_1.default)(res, {
@@ -36,7 +38,8 @@ const getSingleService = (0, catchAsync_1.default)((req, res) => __awaiter(void 
         data: result,
     });
 }));
-const getAllServices = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//5. Get All Services
+const getAllServicesFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield service_service_1.ServiceServices.getAllService();
     (0, sendResponse_1.default)(res, {
         success: result.length ? true : false,
@@ -47,7 +50,8 @@ const getAllServices = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
         data: result,
     });
 }));
-const updateService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//6. Update Services (Only Accessible by Admin)
+const updateServiceFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield service_service_1.ServiceServices.updateService(id, req.body);
     (0, sendResponse_1.default)(res, {
@@ -57,7 +61,8 @@ const updateService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
         data: result,
     });
 }));
-const deleteService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//7. Delete a Service (Only Accessible by Admin)
+const deleteServiceFromDB = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield service_service_1.ServiceServices.deleteService(id);
     (0, sendResponse_1.default)(res, {
@@ -68,9 +73,9 @@ const deleteService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 exports.ServiceControllers = {
-    createService,
-    getSingleService,
-    getAllServices,
-    updateService,
-    deleteService,
+    createServiceIntoDB,
+    getSingleServiceFromDB,
+    getAllServicesFromDB,
+    updateServiceFromDB,
+    deleteServiceFromDB,
 };

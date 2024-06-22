@@ -19,10 +19,12 @@ const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const config_1 = __importDefault(require("../../config"));
+//1. User Sign Up
 const signUp = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield user_model_1.User.create(payload);
     return result;
 });
+//2. User Login
 const login = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield user_model_1.User.findOne({ email: payload === null || payload === void 0 ? void 0 : payload.email }).select('+password');
     if (!user) {

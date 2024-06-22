@@ -17,6 +17,7 @@ const auth_service_1 = require("./auth.service");
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
+//1. User Sign Up
 const signUp = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield auth_service_1.AuthServices.signUp(req.body);
     (0, sendResponse_1.default)(res, {
@@ -26,6 +27,7 @@ const signUp = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0,
         data: result,
     });
 }));
+//2. User Login
 const login = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { token, user } = yield auth_service_1.AuthServices.login(req.body);
     res.status(http_status_codes_1.default.OK).json({
